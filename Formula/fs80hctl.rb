@@ -1,17 +1,17 @@
 class Fs80hctl < Formula
   desc "Technical control CLI for Futronic FS80/FS80H fingerprint scanners"
   homepage "https://github.com/faeliaso/fs80hctl"
-  version "0.1.0"
+  version "0.2.0"
   license "MIT"
 
   if Hardware::CPU.arm?
     url "https://github.com/faeliaso/fs80hctl/releases/download/v#{version}/fs80hctl-v#{version}-aarch64-apple-darwin.tar.gz"
     # Replace with the SHA-256 of the Apple Silicon release asset.
-    sha256 "fca95f7894fc517febc866ecd1a941c20f4786734ed8bb8131bb330d8daadfbe"
+    sha256 "55f15c943312f6208c880597e323dc447780e96d0c00f60fc0427049569aeae4"
   else
     url "https://github.com/faeliaso/fs80hctl/releases/download/v#{version}/fs80hctl-v#{version}-x86_64-apple-darwin.tar.gz"
     # Replace with the SHA-256 of the Intel release asset.
-    sha256 "6e24e4ec05f8e8f711eebf28bf7ad2f1d57f00e15f36d204d44c9cd0746b105c"
+    sha256 "483a6f8e7deb6feef80508b5156b5fd62cb28b4f8b848a30e74392a317c334ce"
   end
 
   depends_on "libusb"

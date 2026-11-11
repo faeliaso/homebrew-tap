@@ -1,0 +1,15 @@
+name: Homebrew formula checks
+
+on:
+  pull_request:
+
+jobs:
+  tap-syntax:
+    runs-on: macos-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+      - name: Validate tap syntax
+        run: brew test-bot --only-tap-syntax

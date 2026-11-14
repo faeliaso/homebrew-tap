@@ -7,11 +7,11 @@ class Hu20ctl < Formula
   if Hardware::CPU.arm?
     url "https://github.com/faeliaso/hu20ctl/releases/download/v#{version}/hu20ctl-v#{version}-aarch64-apple-darwin.tar.gz"
     # Replace with the SHA-256 of the Apple Silicon release asset.
-    sha256 "134de4c06775b8ba6aca0f8482c93b915a36f402278b543c13e507e6f187556a"
+    sha256 "e1b0a51c1181373b5f50aef6d528469028c24c5aa2a6e543c1dd8f8797ba7ed2"
   else
     url "https://github.com/faeliaso/hu20ctl/releases/download/v#{version}/hu20ctl-v#{version}-x86_64-apple-darwin.tar.gz"
     # Replace with the SHA-256 of the Intel release asset.
-    sha256 "90904bc893234833d5238f74ced7bcbd2617dfd2bf7ea62fca080adba82a1386"
+    sha256 "91028b48d60ab275da356014a35421ee8a274aaedac6ff6aa757a27601bfbeb3"
   end
 
   depends_on "libusb"

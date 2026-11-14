@@ -1,10 +1,11 @@
 # Homebrew Tap for faeliaso
 
 Homebrew formulas maintained by [@faeliaso](https://github.com/faeliaso).
-The first formula distributed by this tap is `fs80hctl`, the technical control
-CLI for Futronic FS80/FS80H fingerprint scanners.
+Formulas distributed by this tap:
+- `fs80hctl`: technical control CLI for Futronic FS80/FS80H fingerprint scanners.
+- `hu20ctl`: operational CLI and capture daemon for SecuGen Hamster Pro 20 (HU20) fingerprint scanners.
 
-## Install fs80hctl
+## Install
 
 Add the tap once:
 
@@ -12,29 +13,30 @@ Add the tap once:
 brew tap faeliaso/tap
 ```
 
-Install the CLI:
+Install the CLIs:
 
 ```bash
 brew install fs80hctl
+brew install hu20ctl
 ```
 
-Upgrade it after a new release:
+Upgrade after a new release:
 
 ```bash
 brew update
-brew upgrade fs80hctl
+brew upgrade fs80hctl hu20ctl
 ```
 
-The formula installs Homebrew's `libusb` dependency before installing
-`fs80hctl`.
+Each formula installs Homebrew's `libusb` dependency before installing the CLI.
 
-## Run the capture server
+## Run the capture servers
 
-`fs80hctl` is installed as a command-line tool. Start its long-running capture
-server manually when you need it:
+`fs80hctl` and `hu20ctl` are installed as command-line tools. Start their capture
+servers manually when needed:
 
 ```bash
 fs80hctl serve
+hu20ctl daemon
 ```
 
 This tap intentionally does not register a `brew services` or `launchd`
@@ -43,22 +45,23 @@ service. Stop the server with `Ctrl-C` in the terminal that started it.
 ## Release assets
 
 Each GitHub Release of [`faeliaso/fs80hctl`](https://github.com/faeliaso/fs80hctl)
+or [`faeliaso/hu20ctl`](https://github.com/faeliaso/hu20ctl)
 must publish one tarball for each supported macOS architecture:
 
 ```text
-fs80hctl-v<VERSION>-aarch64-apple-darwin.tar.gz
-fs80hctl-v<VERSION>-x86_64-apple-darwin.tar.gz
+<tool>-v<VERSION>-aarch64-apple-darwin.tar.gz
+<tool>-v<VERSION>-x86_64-apple-darwin.tar.gz
 ```
 
-Each archive must contain `fs80hctl` at its root. It may also contain
-`man/fs80hctl.1`; when present, the formula installs it as a manpage.
+Each archive must contain `<tool>` at its root. It may also contain
+`man/<tool>.1`; when present, the formula installs it as a manpage.
 
-When updating the formula, replace its version and both checksum placeholders
+When updating a formula, replace its version and both checksum placeholders
 with the values from the published assets:
 
 ```bash
-shasum -a 256 fs80hctl-v<VERSION>-aarch64-apple-darwin.tar.gz
-shasum -a 256 fs80hctl-v<VERSION>-x86_64-apple-darwin.tar.gz
+shasum -a 256 <tool>-v<VERSION>-aarch64-apple-darwin.tar.gz
+shasum -a 256 <tool>-v<VERSION>-x86_64-apple-darwin.tar.gz
 ```
 
 ## Add a formula

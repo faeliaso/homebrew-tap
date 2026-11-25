@@ -1,17 +1,17 @@
 class Hu20ctl < Formula
   desc "Operational CLI and capture daemon for SecuGen Hamster Pro 20 (HU20) scanners"
   homepage "https://github.com/faeliaso/hu20ctl"
-  version "0.5.0"
+  version "0.5.1"
   license "MIT"
 
   if Hardware::CPU.arm?
     url "https://github.com/faeliaso/hu20ctl/releases/download/v#{version}/hu20ctl-v#{version}-aarch64-apple-darwin.tar.gz"
     # Replace with the SHA-256 of the Apple Silicon release asset.
-    sha256 "d74b0dfc4999f3bc2b5dc674b9ea37ece24050179bd06ed7cc980e10521bbade"
+    sha256 "7fe1436654769091d4fe0d05341ccc3d54352a9895603ab13dbb776421940243"
   else
     url "https://github.com/faeliaso/hu20ctl/releases/download/v#{version}/hu20ctl-v#{version}-x86_64-apple-darwin.tar.gz"
     # Replace with the SHA-256 of the Intel release asset.
-    sha256 "8826c93245e3647aa90a49a1ba24779d6913c1c3a362be402479fdeb7697df97"
+    sha256 "e79de47c45c2c028d5761b04a66a7562b3ce0aebee828c5f2fdc2973b551fd60"
   end
 
   depends_on "libusb"
